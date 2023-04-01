@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="page d-flex">
+{% include 'nav.html' %}
+
+      <div class="content w-full">
+        {% include 'header.html' %}
+        <h1 class="p-relative">Members</h1>
+        
+        <div class="friends-page d-grid m-20 gap-20">
+          {% for x in Mem %}
+          <div class="friend bg-white rad-6 p-20 p-relative">
+            <div class="contact">
+              <a href="mailto:{{x.Email}}"><i class="fa-regular fa-envelope"></i></a>
+            </div>
+            <div class="txt-c">
+              <img class="rad-half mt-10 mb-10 w-100 h-100" src="imgs/friend-01.jpg" alt="" />
+              <h4 class="m-0">{{x.FullName}}</h4>
+              <p class="c-grey fs-13 mt-5 mb-0">{{x.Gob}}</p>
+            </div>
+            <div class="icons fs-14 p-relative">
+              <div class="mb-10">
+                <i class="fa-solid fa-code-commit fa-fw"></i>
+                <span>{{x.cours_id}}</span>
+              </div>
+            </div>
+            <div class="info between-flex fs-13">
+              <span class="c-grey">Joined {{x.date_join}}</span>
+              <div>
+                <a class="bg-blue c-white btn-shape" href="profile.html">Profile</a>
+              </div>
+            </div>
+          </div>
+         {% endfor%}
+          </div>
+        </div>
+        
+      </div>
+    </div>
+{% endblock content %}
